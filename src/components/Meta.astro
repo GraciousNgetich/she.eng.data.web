@@ -8,16 +8,20 @@ const defaultProps = {
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "ScrewFast",
-    "url": "https://screwfast.uk",
-    "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
+    name: "ScrewFast",
+    url: "https://screwfast.uk",
+    description:
+      "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
   },
 };
 
 // Extract props with default values assigned from defaultProps. Values can be overridden when the component is used.
 // For example:
 // <MainLayout title="Custom Title" meta="Custom description." />
-const { meta = defaultProps.meta, structuredData = defaultProps.structuredData } = Astro.props;
+const {
+  meta = defaultProps.meta,
+  structuredData = defaultProps.structuredData,
+} = Astro.props;
 
 // Define the metadata for your website and individual pages
 const title: string = "ScrewFast"; // Set default title
@@ -30,10 +34,14 @@ const socialImage: string = `${Astro.site}/social.png`; // Set the path for the 
 ---
 
 <!-- Inject structured data into the page if provided. This data is formatted as JSON-LD, a method recommended by Google for structured data pass:
-     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->
-{structuredData && (
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
-)}
+     https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data -->{
+  structuredData && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  )
+}
 <!-- Define the character set, description, author, and viewport settings -->
 <meta charset="utf-8" />
 <meta content={meta} name="description" />
@@ -76,4 +84,4 @@ const socialImage: string = `${Astro.site}/social.png`; // Set the path for the 
 <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
 <link href="/apple-touch-icon.png" rel="shortcut icon" />
 <!-- Set theme color -->
-<meta name="theme-color" content="#facc15" />
+<meta name="theme-color" content="#b220b6" />

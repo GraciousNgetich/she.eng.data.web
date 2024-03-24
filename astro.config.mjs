@@ -34,14 +34,6 @@ export default defineConfig({
       sidebar: [
         {
           label: "Quick Start Guides",
-          translations: {
-            de: "Schnellstartanleitungen",
-            es: "Guías de Inicio Rápido",
-            fa: "راهنمای شروع سریع",
-            fr: "Guides de Démarrage Rapide",
-            ja: "クイックスタートガイド",
-            "zh-cn": "快速入门指南",
-          },
           autogenerate: { directory: "guides" },
         },
         {

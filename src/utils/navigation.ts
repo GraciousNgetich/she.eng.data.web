@@ -1,7 +1,7 @@
 // An array of links for navigation bar
 export const navBarLinks = [
   { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
+    { name: "About", url: "/about" },
   { name: "Services", url: "/services" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
@@ -11,26 +11,23 @@ export const footerLinks = [
   {
     section: "Ecosystem",
     links: [
-      { name: "Documentation", url: "/en/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Documentation", url: "#" },
     ],
   },
   {
     section: "Company",
     links: [
-      { name: "About us", url: "#" },
-      { name: "Blog", url: "#" },
+      { name: "About", url: "/about" },
+      { name: "Blog", url: "/blog" },
       { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
     ],
   },
 ];
 // An object of links for social icons
 export const socialLinks = {
   facebook: "#",
-  x: "#",
-  github: "https://github.com/mearashadowfax/ScrewFast",
+  x: "https://twitter.com/SheEngData",
+  github: "https://github.com/SheEngineersData",
   google: "#",
   slack: "#",
 };

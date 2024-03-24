@@ -92,7 +92,7 @@ const articles: Article[] = [
 ];
 ---
 
-<MainLayout title="Services | ScrewFast">
+<MainLayout title="Services | SheEngineersData">
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
     title="Uniting Expertise with Your Vision"
@@ -110,7 +110,7 @@ const articles: Article[] = [
   If 'single' is true, it displays one image, otherwise it displays two.
   -->
   {
-    articles.map(article => {
+    articles.map((article) => {
       return article.isRightSection ? (
         <RightSection
           title={article.title}

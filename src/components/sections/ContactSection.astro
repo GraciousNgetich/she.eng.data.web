@@ -38,7 +38,12 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
         </h2>
         <!-- Form for user input with various input fields.-->
         <!-- Each field utilizes a different input component for the specific type of input (text, email, phone, and textarea)-->
-        <form>
+        <form method="POST" id="form">
+          <input
+            type="hidden"
+            name="access_key"
+            value="db711b07-bec6-48a1-bf40-f5629958be6f"
+          />
           <div class="grid gap-4">
             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextInput
@@ -61,7 +66,7 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
             />
           </div>
 
-          <div class="mt-4 grid">
+          <div id="result" class="mt-4 grid">
             <AuthBtn title="Send Message" />
           </div>
 
@@ -71,6 +76,48 @@ const formSubTitle: string = "We'll get back to you in 1-2 business days.";
             </p>
           </div>
         </form>
+        <script is:inline>
+          const form = document.getElementById("form");
+          const result = document.getElementById("result");
+
+          form.addEventListener("submit", function (e) {
+            const formData = new FormData(form);
+            e.preventDefault();
+
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            result.innerHTML = "Please wait...";
+
+            fetch("https://api.web3forms.com/submit", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: json,
+            })
+              .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                  result.innerHTML = json.message;
+                } else {
+                  console.log(response);
+                  result.innerHTML = json.message;
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+              })
+              .then(function () {
+                form.reset();
+                setTimeout(() => {
+                  result.style.display = "none";
+                }, 3000);
+              });
+          });
+        </script>
       </div>
 
       <!--ContactIconBlocks are used to display different methods of contacting, including visiting office, email, browsing knowledgebase, and FAQ.-->
